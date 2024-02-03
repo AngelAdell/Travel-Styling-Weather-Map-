@@ -1,1 +1,28 @@
 @import url('bootstrap/dist/css/bootstrap.min.css');
+
+body {
+    background-color: #fffffa;
+    color: #000000;
+    font-family: 'Lora', serif;
+  }
+  
+  /* Style for the card header using Playfair Display */
+  .card-header {
+    background-color: #fffffa;
+    color: #000000;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; /* Example size, adjust as needed */
+  }
+  
+  /* Style for the list items and checkboxes using Lora */
+  .list-group-item {
+    font-family: 'Lora', serif;
+    font-size: 1rem; /* Example size, adjust as needed */
+  }
+  
+  /* Style for checkboxes */
+  .form-check-input {
+    margin-top: 0.3rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }

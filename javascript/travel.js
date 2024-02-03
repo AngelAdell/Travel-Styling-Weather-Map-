@@ -5,7 +5,6 @@ const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 const apiKey = "df0dc0594d5f2dec8f3c7c2d9c958908";
 const cityName = document.getElementById("city-input").value;
-const mapboxApiKey = "AIzaSyBMpZCexuWl2MQAWN17h7TnYfM3gxP5yqk";
 
 // API for current weather and 5-day forecast
 const currentWeatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
@@ -195,39 +194,6 @@ search.addEventListener('click', () => {
         .catch(error => {
             console.error('Error fetching weather data:', error);
         });
-});
 
-// Map Feature
-fetch( geocodingApiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-        const coordinates = data.features[0].geometry.coordinates;
-
-        // Create a map and add it to the 'map' div
-        mapboxgl.accessToken =mapboxApiKey;
-
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v12', // style URL
-            center: [-98.4946, 29.4252], // starting position [lng, lat]
-            zoom: 4, // starting zoom
-        });
-
-        // Add a marker at the specified coordinates
-        new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
-    })
-    .catch((error) => {
-        console.error("Error fetching coordinates from Mapbox Geocoding API:", error);
-    });
-
-
-function geocode("132 Granby St. Norfolk, VA 23510", mapboxApiKey).then(coords => {
-    const marker = new mapboxgl.Marker()
-        .setLngLat(coords)
-        .addTo(map);
-
-    const codeupPopup = new mapboxgl.Popup()
-        .setHTML("<p>Welcome to the Seven Cities</p>");
-
-    marker.setPopup(codeupPopup);
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${weatherAPIKey}`)
 });
